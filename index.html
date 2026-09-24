@@ -15,6 +15,15 @@
   .balance-chip{display:flex;align-items:center;gap:5px;background:rgba(59,130,246,.15);border:1px solid rgba(59,130,246,.4);padding:6px 10px;border-radius:20px;font-size:13px;font-weight:700;color:#60a5fa}
   .screen{display:none}
   .screen.active{display:block}
+
+  /* Уровень */
+  .level-card{background:rgba(255,255,255,.04);border-radius:14px;padding:12px;margin-bottom:12px;border:1px solid rgba(167,139,250,.2)}
+  .level-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px}
+  .level-badge{background:linear-gradient(135deg,#a78bfa,#8b5cf6);padding:3px 10px;border-radius:10px;font-size:11px;font-weight:700}
+  .level-bar{height:8px;background:#1e293b;border-radius:4px;overflow:hidden}
+  .level-bar-fill{height:100%;background:linear-gradient(90deg,#60a5fa,#a78bfa);transition:width .4s}
+  .level-sub{font-size:10px;color:#94a3b8;margin-top:6px;text-align:right}
+
   .wheel-card{background:linear-gradient(135deg,#1e3a8a,#1e40af);border-radius:16px;padding:14px;display:flex;align-items:center;gap:12px;margin-bottom:12px;border:1px solid rgba(96,165,250,.3)}
   .wheel-icon{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#06b6d4,#3b82f6);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0}
   .wheel-info{flex:1}
@@ -22,15 +31,18 @@
   .wheel-info p{font-size:11px;color:#93c5fd}
   .wheel-spins{font-size:10px;color:#fbbf24;margin-top:3px}
   .wheel-btn{background:linear-gradient(135deg,#3b82f6,#06b6d4);border:none;color:#fff;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:700;cursor:pointer}
-  .quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-  .quick-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:#fff;padding:12px 4px;border-radius:12px;font-size:12px;font-weight:600;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px}
-  .quick-btn .icon{font-size:16px}
+
+  .money-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+  .money-btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#fff;padding:12px 4px;border-radius:12px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px}
+  .money-btn .icon{font-size:15px}
+
   .stats-bar{background:rgba(255,255,255,.04);border-radius:12px;padding:12px;margin-bottom:12px;display:flex;align-items:center;justify-content:space-between}
   .live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;margin-right:6px;animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
   .stats-bar .main-text{font-size:12px;font-weight:600}
   .stats-bar .sub-text{font-size:10px;color:#94a3b8;margin-top:2px}
   .reviews-btn{background:rgba(255,255,255,.06);border:none;color:#fff;padding:8px 10px;border-radius:10px;font-size:11px;cursor:pointer}
+
   .section-title{font-size:14px;font-weight:700;margin:14px 0 8px;text-transform:uppercase;color:#94a3b8}
   .game-preview{background:rgba(255,255,255,.05);border-radius:14px;padding:14px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
   .gp-left{display:flex;align-items:center;gap:12px}
@@ -41,28 +53,31 @@
   .gp-info h4{font-size:14px;font-weight:700}
   .gp-info p{font-size:11px;color:#94a3b8}
   .gp-arrow{color:#64748b;font-size:18px}
-  .money-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
-  .money-btn{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#fff;padding:12px 4px;border-radius:12px;font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:5px}
-  .money-btn .icon{font-size:15px}
+
   .game-wrap{background:rgba(255,255,255,.03);border-radius:16px;padding:16px;margin-bottom:12px}
   .game-wrap h2{font-size:17px;margin-bottom:14px}
+
   .slots-screen{display:flex;gap:8px;justify-content:center;margin:16px 0}
   .reel{width:70px;height:90px;background:#1a1f2e;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:40px;border:1px solid rgba(255,255,255,.06)}
   .reel.spin{animation:shake .1s infinite}
   @keyframes shake{0%{transform:translateY(-5px)}50%{transform:translateY(5px)}100%{transform:translateY(-5px)}}
+
   .bet-row{display:flex;gap:6px;align-items:center;margin-bottom:10px;overflow-x:auto;padding-bottom:4px}
   .bet-row input{width:80px;padding:10px;border-radius:10px;border:1px solid #334155;background:#0f172a;color:#fff;font-size:15px;text-align:center}
   .bet-chip{background:#1e293b;border:none;color:#cbd5e1;padding:8px 12px;border-radius:10px;font-size:13px;cursor:pointer;white-space:nowrap}
   .bet-chip.x2{color:#fbbf24}
   .bet-chip.max{color:#f87171}
+
   .main-btn{width:100%;padding:16px;border-radius:12px;border:none;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px}
   .main-btn.green{background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff}
   .main-btn.blue{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff}
-  .main-btn.purple{background:linear-gradient(135deg,#8b5cf6,#3b82f6);color:#fff}
+  .main-btn.red{background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff}
   .main-btn:disabled{opacity:.5}
+
   .aviator-screen{background:#0a0f1a;border-radius:14px;padding:20px;text-align:center;margin-bottom:12px;border:1px solid rgba(255,255,255,.06);min-height:180px;position:relative;overflow:hidden}
   .aviator-mult{font-size:48px;font-weight:800;color:#fff;margin:12px 0}
   .plane{position:absolute;font-size:28px;transition:all 1s linear}
+
   .mines-difficulty{display:flex;gap:6px;margin-bottom:12px}
   .diff-btn{flex:1;background:#1e293b;border:1px solid transparent;color:#94a3b8;padding:8px 4px;border-radius:10px;font-size:11px;cursor:pointer;text-align:center}
   .diff-btn.active{background:rgba(34,197,94,.15);border-color:#22c55e;color:#22c55e}
@@ -70,16 +85,20 @@
   .mine-cell{aspect-ratio:1;border-radius:10px;background:#1a1f2e;border:none;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
   .mine-cell.opened{background:rgba(34,197,94,.2)}
   .mine-cell.mine{background:rgba(239,68,68,.3)}
+
   .wallet-block{text-align:center;padding:20px 0}
   .wallet-block .big-icon{font-size:48px;margin-bottom:12px}
   .crypto-note{background:rgba(59,130,246,.1);border-radius:12px;padding:14px;margin-top:12px;font-size:13px;color:#93c5fd;text-align:left}
+
   .referral-box{background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.2);border-radius:12px;padding:16px;margin-bottom:12px}
   .referral-box h4{font-size:15px;margin-bottom:8px}
   .ref-link{background:#0f172a;padding:10px;border-radius:8px;font-size:11px;word-break:break-all;color:#94a3b8;margin-top:8px}
+
   .nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:#0d1117;border-top:1px solid rgba(255,255,255,.06);padding:6px 0;z-index:100}
-  .nav button{flex:1;background:none;border:none;color:#64748b;font-size:11px;padding:6px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;transition:color .2s}
+  .nav button{flex:1;background:none;border:none;color:#64748b;font-size:10px;padding:6px 0;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;transition:color .2s}
   .nav button.active{color:#60a5fa}
-  .nav .nav-icon{font-size:20px}
+  .nav .nav-icon{font-size:18px}
+
   .wheel-fullscreen{display:flex;flex-direction:column;align-items:center;padding:20px 0}
   .wheel-holder{position:relative;width:280px;height:280px;margin:20px 0}
   .wheel-canvas{width:100%;height:100%;border-radius:50%;background:conic-gradient(#f59e0b 0deg 40deg,#3b82f6 40deg 80deg,#22c55e 80deg 120deg,#a855f7 120deg 160deg,#06b6d4 160deg 200deg,#f97316 200deg 240deg,#ef4444 240deg 280deg,#8b5cf6 280deg 320deg,#10b981 320deg 360deg);border:6px solid #1e293b;box-shadow:0 0 40px rgba(59,130,246,.3);transition:transform 3s cubic-bezier(.17,.67,.3,1)}
@@ -88,9 +107,44 @@
   .wheel-spin-btn{background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;border:none;padding:16px 48px;border-radius:12px;font-size:16px;font-weight:700;cursor:pointer;margin-top:20px;box-shadow:0 4px 20px rgba(245,158,11,.4)}
   .wheel-spin-btn:disabled{opacity:.5}
   .wheel-message{font-size:15px;margin-top:12px;min-height:22px;text-align:center}
+
   .message{font-size:14px;min-height:22px;text-align:center;margin:10px 0}
   .win-text{color:#4ade80}
   .lose-text{color:#f87171}
+
+  /* АДМИНКА */
+  .admin-login{display:flex;flex-direction:column;align-items:center;padding:40px 0}
+  .admin-login input{width:100%;max-width:280px;padding:14px;border-radius:12px;border:1px solid #334155;background:#0f172a;color:#fff;font-size:16px;text-align:center;margin-bottom:12px}
+  .admin-login button{width:100%;max-width:280px;padding:14px;border-radius:12px;border:none;background:linear-gradient(135deg,#a78bfa,#8b5cf6);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+  .admin-err{color:#f87171;font-size:12px;margin-top:8px;min-height:18px}
+
+  .admin-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+  .admin-stat{background:rgba(59,130,246,.1);border-radius:10px;padding:10px;text-align:center}
+  .admin-stat .value{font-size:16px;font-weight:700;color:#60a5fa}
+  .admin-stat .label{font-size:10px;color:#94a3b8;margin-top:4px}
+
+  .admin-card{background:rgba(255,255,255,.05);border-radius:12px;padding:14px;margin-bottom:12px}
+  .admin-card h3{font-size:14px;color:#a78bfa;margin-bottom:10px}
+  .admin-row{display:flex;gap:8px;margin-bottom:8px}
+  .admin-row input{flex:1;padding:10px;border-radius:8px;border:1px solid #334155;background:#0f172a;color:#fff;font-size:14px;min-width:0}
+  .admin-card button{padding:10px 14px;border-radius:8px;border:none;background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff;font-size:13px;font-weight:600;cursor:pointer;margin-right:6px;margin-bottom:6px}
+  .admin-card button.green{background:linear-gradient(135deg,#22c55e,#16a34a)}
+  .admin-card button.red{background:linear-gradient(135deg,#ef4444,#dc2626)}
+  .admin-table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px}
+  .admin-table th,.admin-table td{padding:8px 4px;text-align:left;border-bottom:1px solid rgba(255,255,255,.06);white-space:nowrap}
+  .admin-table th{color:#94a3b8;font-weight:600;font-size:10px}
+  .admin-table .bal{color:#4ade80;font-weight:700}
+  .admin-table .lvl{color:#a78bfa;font-weight:600}
+  .admin-table button{padding:4px 7px;font-size:10px;margin:0 2px 0 0;border:none;border-radius:6px;background:#3b82f6;color:#fff;cursor:pointer}
+  .admin-table button.red{background:#dc2626}
+  .admin-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+  /* Всплывашка уровня */
+  .level-popup{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);background:linear-gradient(135deg,#8b5cf6,#3b82f6);padding:24px 32px;border-radius:20px;text-align:center;z-index:1000;box-shadow:0 10px 40px rgba(139,92,246,.5);transition:transform .3s}
+  .level-popup.show{transform:translate(-50%,-50%) scale(1)}
+  .level-popup .big{font-size:36px;margin-bottom:8px}
+  .level-popup .text{font-size:14px;font-weight:600}
+  .level-popup .reward{font-size:16px;font-weight:800;color:#fbbf24;margin-top:6px}
 </style>
 </head>
 <body>
@@ -103,7 +157,17 @@
   </div>
 </div>
 
+<!-- ГЛАВНАЯ -->
 <div id="screen-home" class="screen active">
+  <div class="level-card">
+    <div class="level-row">
+      <span>Уровень <span class="level-badge" id="levelBadge">1</span></span>
+      <span id="xpText">0 / 100 XP</span>
+    </div>
+    <div class="level-bar"><div class="level-bar-fill" id="xpBar" style="width:0%"></div></div>
+    <div class="level-sub">Ставок всего: <span id="wageredText">0</span> ₽</div>
+  </div>
+
   <div class="wheel-card">
     <div class="wheel-icon">🎯</div>
     <div class="wheel-info">
@@ -137,7 +201,6 @@
     </div>
     <div class="gp-arrow">›</div>
   </div>
-
   <div class="game-preview" onclick="showScreen('aviator')">
     <div class="gp-left">
       <div class="gp-icon aviator">✈️</div>
@@ -145,7 +208,6 @@
     </div>
     <div class="gp-arrow">›</div>
   </div>
-
   <div class="game-preview" onclick="showScreen('mines')">
     <div class="gp-left">
       <div class="gp-icon mines">💣</div>
@@ -155,6 +217,7 @@
   </div>
 </div>
 
+<!-- СЛОТЫ -->
 <div id="screen-slots" class="screen">
   <div class="game-wrap">
     <h2>🎰 Слот-Машина</h2>
@@ -176,6 +239,7 @@
   </div>
 </div>
 
+<!-- AVIATOR -->
 <div id="screen-aviator" class="screen">
   <div class="game-wrap">
     <h2>✈️ Aviator</h2>
@@ -195,6 +259,7 @@
   </div>
 </div>
 
+<!-- MINES -->
 <div id="screen-mines" class="screen">
   <div class="game-wrap">
     <h2>💣 Mines</h2>
@@ -219,6 +284,7 @@
   </div>
 </div>
 
+<!-- КОЛЕСО -->
 <div id="screen-wheel" class="screen">
   <div class="wheel-fullscreen">
     <h2 style="font-size:18px">🎡 Колесо Фортуны</h2>
@@ -233,6 +299,7 @@
   </div>
 </div>
 
+<!-- КОШЕЛЕК -->
 <div id="screen-wallet" class="screen">
   <div class="game-wrap">
     <h2>💼 Кошелёк</h2>
@@ -248,6 +315,7 @@
   </div>
 </div>
 
+<!-- БОНУСЫ -->
 <div id="screen-bonuses" class="screen">
   <div class="game-wrap">
     <h2>🎁 Бонусы</h2>
@@ -268,6 +336,69 @@
   </div>
 </div>
 
+<!-- АДМИНКА -->
+<div id="screen-admin" class="screen">
+  <div id="adminLogin" class="admin-login">
+    <div style="font-size:48px;margin-bottom:12px">🔐</div>
+    <h2 style="font-size:18px;margin-bottom:16px">Вход в админ-панель</h2>
+    <input type="password" id="adminPass" placeholder="Введите пароль" onkeydown="if(event.key==='Enter')adminLogin()">
+    <button onclick="adminLogin()">Войти</button>
+    <div class="admin-err" id="adminErr"></div>
+  </div>
+
+  <div id="adminPanel" style="display:none">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <h2 style="font-size:18px">👑 Админ-панель</h2>
+      <button onclick="adminLogout()" style="background:#dc2626;border:none;color:#fff;padding:8px 12px;border-radius:8px;font-size:12px;cursor:pointer">Выйти</button>
+    </div>
+
+    <div class="admin-stats">
+      <div class="admin-stat"><div class="value" id="statUsers">0</div><div class="label">Игроков</div></div>
+      <div class="admin-stat"><div class="value" id="statBalance">0</div><div class="label">Баланс</div></div>
+      <div class="admin-stat"><div class="value" id="statWagered">0</div><div class="label">Ставок</div></div>
+    </div>
+
+    <div class="admin-card">
+      <h3>➕ Управление балансом</h3>
+      <div class="admin-row">
+        <input type="number" id="uidInput" placeholder="User ID">
+        <input type="number" id="amountInput" placeholder="Сумма">
+      </div>
+      <button class="green" onclick="adminAddBalance()">Начислить</button>
+      <button class="red" onclick="adminSubBalance()">Списать</button>
+      <button onclick="adminSetBalance()">Установить</button>
+    </div>
+
+    <div class="admin-card">
+      <h3>🎰 Спины / Уровень</h3>
+      <div class="admin-row">
+        <input type="number" id="spinUid" placeholder="User ID">
+        <input type="number" id="spinValue" placeholder="Спины">
+      </div>
+      <button onclick="adminSetSpins()">Установить спины</button>
+      <div class="admin-row" style="margin-top:8px">
+        <input type="number" id="lvlUid" placeholder="User ID">
+        <input type="number" id="lvlValue" placeholder="Уровень">
+      </div>
+      <button onclick="adminSetLevel()">Установить уровень</button>
+    </div>
+
+    <div class="admin-card">
+      <h3>👥 Пользователи</h3>
+      <button onclick="adminLoadUsers()">🔄 Обновить</button>
+      <div class="admin-scroll">
+        <table class="admin-table">
+          <thead>
+            <tr><th>ID</th><th>Ник</th><th>Баланс</th><th>Ур.</th><th>XP</th><th>Спины</th><th>Ставок</th><th></th></tr>
+          </thead>
+          <tbody id="usersTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- НАВИГАЦИЯ -->
 <div class="nav">
   <button class="active" data-screen="home" onclick="showScreen('home',this)"><span class="nav-icon">🏠</span>Главная</button>
   <button data-screen="slots" onclick="showScreen('slots',this)"><span class="nav-icon">🎰</span>Слоты</button>
@@ -275,35 +406,41 @@
   <button data-screen="mines" onclick="showScreen('mines',this)"><span class="nav-icon">💣</span>Mines</button>
   <button data-screen="wallet" onclick="showScreen('wallet',this)"><span class="nav-icon">💼</span>Кошелёк</button>
   <button data-screen="bonuses" onclick="showScreen('bonuses',this)"><span class="nav-icon">🎁</span>Бонусы</button>
+  <button data-screen="admin" onclick="showScreen('admin',this)"><span class="nav-icon">🔐</span>Админ</button>
+</div>
+
+<!-- Всплывашка уровня -->
+<div class="level-popup" id="levelPopup">
+  <div class="big">🎉</div>
+  <div class="text">Уровень <span id="popupLevel">2</span>!</div>
+  <div class="reward">+<span id="popupReward">0</span> ₽</div>
 </div>
 
 <script>
 const tg = window.Telegram.WebApp;
 tg.ready(); tg.expand();
 
-// ⚠️ ЗАМЕНИ на адрес своего API на Wispbyte
-// Например: "https://78.154.103.35:10407"
-// Или: "http://78.154.103.35:10407"
-const API = "https://lordscasino-api.wispbyte.app";;
-
-const BOT_USERNAME = "LordsCasinoBot"; // без @
+const API = "https://api.lordscasino.wispbyte.app";
+const BOT_USERNAME = "LordsCasinoBot";
+const ADMIN_PASSWORD = "Fantan5";
 
 let userId = tg.initDataUnsafe?.user?.id;
 let username = tg.initDataUnsafe?.user?.username || tg.initDataUnsafe?.user?.first_name || "player";
 let currentBalance = 0;
 let currentSpins = 0;
+let currentLevel = 1;
+let currentXP = 0;
+let currentXPToNext = 100;
 let minesActive = false;
 let minesCount = 3;
+let adminToken = "";
 
+// ================== ИНИЦИАЛИЗАЦИЯ ==================
 async function init(){
-  console.log("initDataUnsafe:", tg.initDataUnsafe);
-  console.log("userId:", userId, "username:", username);
-
   if(!userId){
-    document.body.innerHTML = "<div style='padding:20px;color:#fff'>Открой приложение через кнопку в Telegram</div>";
+    document.body.innerHTML = "<div style='padding:20px;color:#fff'>Открой через Telegram</div>";
     return;
   }
-
   try {
     const r = await fetch(API + "/api/register", {
       method: "POST",
@@ -311,18 +448,46 @@ async function init(){
       body: JSON.stringify({user_id: userId, username})
     });
     const d = await r.json();
-    console.log("register response:", d);
-    if(d.balance !== undefined){
-      updateBalance(d.balance);
-      updateSpins(d.spins);
-    }
-  } catch(e) {
-    console.error("API error:", e);
+    applyUserData(d);
+  } catch(e){
     document.getElementById("balanceDisplay").textContent = "ERR";
   }
-
   document.getElementById("userAvatar").textContent = (username[0] || "L").toUpperCase();
   loadBonuses();
+}
+
+function applyUserData(d){
+  if(d.balance !== undefined) updateBalance(d.balance);
+  if(d.spins !== undefined) updateSpins(d.spins);
+  if(d.level !== undefined) currentLevel = d.level;
+  if(d.xp !== undefined) currentXP = d.xp;
+  if(d.xp_to_next !== undefined) currentXPToNext = d.xp_to_next;
+  if(d.total_wagered !== undefined) document.getElementById("wageredText").textContent = d.total_wagered;
+  updateLevelUI();
+}
+
+function updateLevelUI(){
+  document.getElementById("levelBadge").textContent = currentLevel;
+  document.getElementById("xpText").textContent = currentXP + " / " + currentXPToNext + " XP";
+  const pct = Math.min(100, (currentXP / currentXPToNext) * 100);
+  document.getElementById("xpBar").style.width = pct + "%";
+}
+
+function checkLevelUp(info){
+  if(!info) return;
+  currentLevel = info.level;
+  currentXP = info.xp;
+  currentXPToNext = info.xp_to_next;
+  updateLevelUI();
+  updateBalance(info.balance);
+  updateSpins(info.spins);
+  if(info.reward > 0){
+    document.getElementById("popupLevel").textContent = info.level;
+    document.getElementById("popupReward").textContent = info.reward;
+    const popup = document.getElementById("levelPopup");
+    popup.classList.add("show");
+    setTimeout(() => popup.classList.remove("show"), 2000);
+  }
 }
 
 function updateBalance(v){ currentBalance = v; document.getElementById("balanceDisplay").textContent = v; }
@@ -338,12 +503,15 @@ function showScreen(name, btn){
     if(t) t.classList.add("active");
   }
   if(name === "bonuses") loadBonuses();
+  if(name === "admin") checkAdminLogin();
 }
 
+// ================== СТАВКИ ==================
 function setBet(id, v){ document.getElementById(id).value = v; }
 function doubleBet(id){ const el = document.getElementById(id); el.value = Math.max(1, parseInt(el.value || 0) * 2); }
 function maxBet(id){ document.getElementById(id).value = Math.max(1, currentBalance); }
 
+// ================== СЛОТЫ ==================
 async function spinSlots(){
   const bet = parseInt(document.getElementById("slotsBet").value);
   if(bet > currentBalance){ document.getElementById("slotsMsg").textContent = "Недостаточно средств"; return; }
@@ -365,17 +533,16 @@ async function spinSlots(){
         document.getElementById("reel" + i).textContent = d.reels[i];
       }
       updateBalance(d.balance);
+      checkLevelUp(d.level_info);
       const msg = document.getElementById("slotsMsg");
       if(d.win > 0){ msg.textContent = `🎉 Выигрыш: ${d.win} ₽`; msg.className = "message win-text"; }
       else { msg.textContent = "😢 Проигрыш"; msg.className = "message lose-text"; }
       btn.disabled = false;
     }, 800);
-  } catch(e){
-    console.error(e);
-    btn.disabled = false;
-  }
+  } catch(e){ console.error(e); btn.disabled = false; }
 }
 
+// ================== AVIATOR ==================
 async function playAviator(){
   const bet = parseInt(document.getElementById("aviatorBet").value);
   if(bet > currentBalance){ document.getElementById("aviatorMsg").textContent = "Недостаточно средств"; return; }
@@ -411,18 +578,17 @@ async function playAviator(){
     setTimeout(() => {
       document.getElementById("aviatorMult").textContent = d.crash_point.toFixed(2) + "x";
       updateBalance(d.balance);
+      checkLevelUp(d.level_info);
       const msg = document.getElementById("aviatorMsg");
       if(d.won){ msg.textContent = `✅ Забрал на ${d.cashout_at}x — выигрыш ${d.win} ₽`; msg.className = "message win-text"; }
       else { msg.textContent = `💥 Краш на ${d.crash_point}x — проигрыш`; msg.className = "message lose-text"; }
       btn.disabled = false;
       setTimeout(() => plane.remove(), 1500);
     }, 2000);
-  } catch(e){
-    console.error(e);
-    btn.disabled = false;
-  }
+  } catch(e){ console.error(e); btn.disabled = false; }
 }
 
+// ================== MINES ==================
 function setMinesDiff(n, btn){
   minesCount = n;
   document.querySelectorAll("#minesDiff .diff-btn").forEach(b => b.classList.remove("active"));
@@ -458,6 +624,7 @@ async function startMines(){
     document.getElementById("minesStartBtn").style.display = "none";
     document.getElementById("minesCashoutBtn").style.display = "block";
     document.getElementById("minesMsg").textContent = "Открывай клетки — множитель растёт!";
+    document.getElementById("minesMsg").className = "message";
   } catch(e){ console.error(e); }
 }
 
@@ -473,6 +640,7 @@ async function clickMine(i){
       minesActive = false;
       renderMinesGrid([], true, d.mines || []);
       updateBalance(d.balance);
+      checkLevelUp(d.level_info);
       document.getElementById("minesMsg").textContent = "💥 Попал на мину!";
       document.getElementById("minesMsg").className = "message lose-text";
       document.getElementById("minesStartBtn").style.display = "block";
@@ -481,7 +649,6 @@ async function clickMine(i){
     }
     renderMinesGrid(d.opened || []);
     document.getElementById("minesMsg").textContent = `Множитель: ${d.multiplier}x`;
-    document.getElementById("minesMsg").className = "message";
   } catch(e){ console.error(e); }
 }
 
@@ -495,6 +662,7 @@ async function cashoutMines(){
     const d = await r.json();
     minesActive = false;
     updateBalance(d.balance);
+    checkLevelUp(d.level_info);
     document.getElementById("minesMsg").textContent = `✅ Забрал на ${d.multiplier}x — выигрыш ${d.win} ₽`;
     document.getElementById("minesMsg").className = "message win-text";
     document.getElementById("minesStartBtn").style.display = "block";
@@ -503,6 +671,7 @@ async function cashoutMines(){
   } catch(e){ console.error(e); }
 }
 
+// ================== КОЛЕСО ==================
 async function spinWheel(){
   if(currentSpins <= 0){ document.getElementById("wheelMsg").textContent = "Нет доступных спинов"; return; }
   const btn = document.getElementById("wheelSpinBtn");
@@ -529,6 +698,7 @@ async function spinWheel(){
   }, 3000);
 }
 
+// ================== БОНУСЫ ==================
 async function loadBonuses(){
   try {
     const r = await fetch(API + "/api/bonuses/" + userId);
@@ -543,6 +713,155 @@ function activatePromo(){
   alert(code ? "❌ Промокод недействителен" : "Введите промокод");
 }
 
+// ================== АДМИНКА ==================
+function checkAdminLogin(){
+  if(adminToken){
+    document.getElementById("adminLogin").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+    adminLoadStats();
+    adminLoadUsers();
+  } else {
+    document.getElementById("adminLogin").style.display = "flex";
+    document.getElementById("adminPanel").style.display = "none";
+  }
+}
+
+async function adminLogin(){
+  const pass = document.getElementById("adminPass").value;
+  if(pass !== ADMIN_PASSWORD){
+    document.getElementById("adminErr").textContent = "Неверный пароль";
+    return;
+  }
+  adminToken = pass;
+  document.getElementById("adminErr").textContent = "";
+  document.getElementById("adminPass").value = "";
+  document.getElementById("adminLogin").style.display = "none";
+  document.getElementById("adminPanel").style.display = "block";
+  adminLoadStats();
+  adminLoadUsers();
+}
+
+function adminLogout(){
+  adminToken = "";
+  checkAdminLogin();
+}
+
+function adminHeaders(){
+  return {"Content-Type": "application/json", "X-Admin-Token": adminToken};
+}
+
+async function adminLoadStats(){
+  try {
+    const r = await fetch(API + "/api/admin/stats", {headers: adminHeaders()});
+    if(r.status === 401){ adminLogout(); return; }
+    const d = await r.json();
+    document.getElementById("statUsers").textContent = d.users_count;
+    document.getElementById("statBalance").textContent = d.total_balance;
+    document.getElementById("statWagered").textContent = d.total_wagered;
+  } catch(e){ console.error(e); }
+}
+
+async function adminLoadUsers(){
+  try {
+    const r = await fetch(API + "/api/admin/users", {headers: adminHeaders()});
+    if(r.status === 401){ adminLogout(); return; }
+    const users = await r.json();
+    const tbody = document.getElementById("usersTable");
+    tbody.innerHTML = "";
+    users.forEach(u => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${u.user_id}</td>
+        <td>${u.username || "—"}</td>
+        <td class="bal">${u.balance} ₽</td>
+        <td class="lvl">${u.level}</td>
+        <td>${u.xp}</td>
+        <td>${u.spins}</td>
+        <td>${u.total_wagered} ₽</td>
+        <td>
+          <button onclick="adminQuickAdd(${u.user_id},1000)">+1k</button>
+          <button onclick="adminQuickAdd(${u.user_id},10000)">+10k</button>
+          <button class="red" onclick="adminQuickDelete(${u.user_id})">✕</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  } catch(e){ console.error(e); }
+}
+
+async function adminAddBalance(){
+  const uid = parseInt(document.getElementById("uidInput").value);
+  const amount = parseInt(document.getElementById("amountInput").value);
+  if(!uid || !amount){ alert("Заполни оба поля"); return; }
+  await fetch(API + "/api/admin/add-balance", {
+    method: "POST", headers: adminHeaders(),
+    body: JSON.stringify({user_id: uid, amount})
+  });
+  adminLoadUsers(); adminLoadStats();
+}
+
+async function adminSubBalance(){
+  const uid = parseInt(document.getElementById("uidInput").value);
+  const amount = parseInt(document.getElementById("amountInput").value);
+  if(!uid || !amount){ alert("Заполни оба поля"); return; }
+  await fetch(API + "/api/admin/add-balance", {
+    method: "POST", headers: adminHeaders(),
+    body: JSON.stringify({user_id: uid, amount: -amount})
+  });
+  adminLoadUsers(); adminLoadStats();
+}
+
+async function adminSetBalance(){
+  const uid = parseInt(document.getElementById("uidInput").value);
+  const amount = parseInt(document.getElementById("amountInput").value);
+  if(!uid || isNaN(amount)){ alert("Заполни оба поля"); return; }
+  await fetch(API + "/api/admin/set-balance", {
+    method: "POST", headers: adminHeaders(),
+    body: JSON.stringify({user_id: uid, amount})
+  });
+  adminLoadUsers(); adminLoadStats();
+}
+
+async function adminSetSpins(){
+  const uid = parseInt(document.getElementById("spinUid").value);
+  const spins = parseInt(document.getElementById("spinValue").value);
+  if(!uid || isNaN(spins)){ alert("Заполни оба поля"); return; }
+  await fetch(API + "/api/admin/set-spins", {
+    method: "POST", headers: adminHeaders(),
+    body: JSON.stringify({user_id: uid, spins})
+  });
+  adminLoadUsers();
+}
+
+async function adminSetLevel(){
+  const uid = parseInt(document.getElementById("lvlUid").value);
+  const level = parseInt(document.getElementById("lvlValue").value);
+  if(!uid || !level){ alert("Заполни оба поля"); return; }
+  await fetch(API + "/api/admin/set-level", {
+    method: "POST", headers: adminHeaders(),
+    body: JSON.stringify({user_id: uid, level})
+  });
+  adminLoadUsers();
+}
+
+async function adminQuickAdd(uid, amount){
+  await fetch(API + "/api/admin/add-balance", {
+    method: "POST", headers: adminHeaders(),
+    body: JSON.stringify({user_id: uid, amount})
+  });
+  adminLoadUsers(); adminLoadStats();
+}
+
+async function adminQuickDelete(uid){
+  if(!confirm(`Удалить юзера ${uid}?`)) return;
+  await fetch(API + "/api/admin/delete-user", {
+    method: "POST", headers: adminHeaders(),
+    body: JSON.stringify({user_id: uid, username: ""})
+  });
+  adminLoadUsers(); adminLoadStats();
+}
+
+// ================== СТАРТ ==================
 init();
 renderMinesGrid();
 </script>
