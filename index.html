@@ -1763,6 +1763,7 @@ function renderCaseTrack() {
 
   const items = casesData[currentCase].items;
   const reps = 8;
+  const bet = caseBetValue;
 
   for (let r = 0; r < reps; r++) {
     items.forEach(it => {
@@ -1770,9 +1771,11 @@ function renderCaseTrack() {
       const d = document.createElement("div");
       d.className = "case-item r-" + it.rarity;
 
+      const amount = Math.round(bet * it.mult);
+
       d.innerHTML = `
-        <div class="val">${it.name}</div>
-        <div class="mult">x${it.mult}</div>
+        <div class="val">${amount} ₽</div>
+        <div class="mult">x${it.mult.toFixed(2)}</div>
         <div class="rarity">${it.rarity.toUpperCase()}</div>
       `;
 
@@ -1783,7 +1786,6 @@ function renderCaseTrack() {
   track.style.transform = "translateX(0)";
 }
 
-
 function updateCaseUI() {
 
   document.getElementById("caseBetDisplay").textContent = caseBetValue + " ₽";
@@ -1793,7 +1795,10 @@ function updateCaseUI() {
   const maxMult = Math.max(...items.map(i => i.mult));
 
   document.getElementById("caseMaxWin").textContent = Math.round(caseBetValue * maxMult) + " ₽";
-}
+
+  // Пересчитываем карточки под новую ставку
+  if (casesData) renderCaseTrack();
+  }
 
 
 function setCaseBet(v, btn) {
@@ -1861,7 +1866,8 @@ async function spinCase() {
     const items = casesData[currentCase].items;
     const itemsPerRep = items.length;
 
-    const winIndexInItems = items.findIndex(x => x.name === d.item.name);
+    // Находим индекс выигрышного элемента по множителю
+    const winIndexInItems = items.findIndex(x => x.mult === d.item.mult);
     const rep = 4 + Math.floor(Math.random() * 3);
     const targetIndex = rep * itemsPerRep + winIndexInItems;
 
@@ -1877,8 +1883,10 @@ async function spinCase() {
       updateBalance(d.balance);
       checkLevelUp(d.level_info);
 
-      document.getElementById("casesMsg").textContent = "Выпало: " + d.item.name + " (x" + d.item.mult + ")";
-      document.getElementById("casesMsg").className = (d.win >= bet) ? "message win-text" : "message lose-text";
+      document.getElementById("casesMsg").textContent =
+        "Выпало: " + d.win + " ₽ (x" + d.item.mult + ")";
+      document.getElementById("casesMsg").className =
+        (d.win >= bet) ? "message win-text" : "message lose-text";
 
       caseSpinning = false;
       btn.disabled = false;
