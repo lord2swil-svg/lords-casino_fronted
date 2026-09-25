@@ -894,6 +894,17 @@ h2 {
   </div>
 
   <h2>Игры</h2>
+  
+  <div class="game-preview" onclick="showScreen('leaderboard')" style="background:linear-gradient(135deg,rgba(251,191,36,.15),rgba(251,191,36,.03));border:1px solid rgba(251,191,36,.3)">
+  <div class="gp-left">
+    <div class="gp-icon" style="background:linear-gradient(135deg,#f59e0b,#fbbf24)">🏆</div>
+    <div>
+      <div style="font-size:13px;font-weight:700">Лидерборд</div>
+      <div style="font-size:10px;color:#94a3b8">Топ игроков</div>
+    </div>
+  </div>
+  <div style="color:#fbbf24">›</div>
+</div>
 
   <div class="game-preview" onclick="showScreen('slots')">
     <div class="gp-left">
@@ -1102,6 +1113,17 @@ h2 {
   </div>
 </div>
 
+<div id="screen-leaderboard" class="screen">
+  <div class="card">
+    <h2>🏆 Лидерборд</h2>
+    <div class="case-tabs" style="margin-bottom:10px">
+      <button class="case-tab active" onclick="switchLb('balance',this)">По балансу</button>
+      <button class="case-tab" onclick="switchLb('wins',this)">По выигрышу</button>
+    </div>
+    <div id="lbList" style="font-size:13px">Загрузка...</div>
+  </div>
+</div>
+
 <div id="screen-wheel" class="screen">
   <div class="wheel-full">
     <h2>🎡 Колесо Фортуны</h2>
@@ -1203,8 +1225,8 @@ const tg = window.Telegram.WebApp;
 tg.ready();
 tg.expand();
 
-const API = "https://lordscasino-api.wispbyte.app";
-const ADMIN_PASSWORD = "Fantan5";
+const API = "https://введи ты свой типо поддомен в Wispbyte или где;
+const ADMIN_PASSWORD = "введёшь свой пароль от админ панели";
 
 let userId = tg.initDataUnsafe?.user?.id;
 let username = tg.initDataUnsafe?.user?.username || tg.initDataUnsafe?.user?.first_name || "player";
@@ -1331,6 +1353,7 @@ function showScreen(name, btn) {
 
   if (name === "admin") checkAdminLogin();
   if (name === "cases") loadCases();
+  if (name === "leaderboard") loadLeaderboard();
 }
 
 
@@ -2149,6 +2172,50 @@ async function adminQuickDelete(uid) {
 
   adminLoadUsers();
   adminLoadStats();
+}
+
+let lbMode = "balance";
+
+async function loadLeaderboard() {
+  try {
+    const r = await fetch(API + "/api/leaderboard");
+    const d = await r.json();
+    renderLb(d);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+function switchLb(mode, btn) {
+  lbMode = mode;
+  document.querySelectorAll("#screen-leaderboard .case-tab").forEach(b => b.classList.remove("active"));
+  if (btn) btn.classList.add("active");
+  fetch(API + "/api/leaderboard").then(r => r.json()).then(renderLb);
+}
+
+function renderLb(data) {
+  const list = lbMode === "balance" ? data.by_balance : data.by_wins;
+  const el = document.getElementById("lbList");
+  if (!list || !list.length) {
+    el.innerHTML = "<div style='color:#94a3b8;text-align:center;padding:20px 0'>Пока пусто</div>";
+    return;
+  }
+  const medals = ["🥇", "🥈", "🥉"];
+  el.innerHTML = list.map((u, i) => {
+    const name = u.username || ("Игрок #" + u.user_id);
+    const value = lbMode === "balance"
+      ? u.balance + " ₽"
+      : (u.total_win || 0) + " ₽";
+    return `
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.05)">
+        <div style="display:flex;align-items:center;gap:8px">
+          <span style="font-size:16px">${medals[i] || ("#" + (i + 1))}</span>
+          <span>${name}</span>
+        </div>
+        <span style="color:#fbbf24;font-weight:700">${value}</span>
+      </div>
+    `;
+  }).join("");
 }
 
 
